@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Mood Tracker</h1>
+    </header>
+    <main>
+        <form method="POST" action="/mood-tracker">
+            <label for="mood">How are you feeling today?</label>
+            <input type="text" id="mood" name="mood" required>
+            <button type="submit">Submit</button>
+        </form>
+        <section>
+            <h2>Past Moods</h2>
+            <ul>
+                {% for mood in moods %}
+                <li>
+                    <strong>Date:</strong> {{ mood.date }}<br>
+                    <strong>Mood:</strong> {{ mood.mood }}<br>
+                    <strong>Sentiment:</strong> {{ mood.sentiment }}<br>
+                    <strong>Tip:</strong> {{ mood.tip }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        
+        <!-- <section>
+            <h2>Past Moods</h2>
+            <ul>
+                {% for mood in moods %}
+                    <li>
+                        <strong>Date:</strong> {{ mood.date }}<br>
+                        <strong>Mood:</strong> {{ mood.mood }}<br>
+                        <strong>Sentiment:</strong> {{ mood.analysis }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section> -->
+    </main>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mental Health Companion</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Welcome to the Mental Health Companion</h1>
+    <nav>
+        <a href="/mood-tracker">Mood Tracker</a>
+        <a href="/journal">Journal</a>
+
+    </nav>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Medical Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Smart Medical Assistant</h1>
+    </header>
+    <main>
+        <form action="/analyze" method="POST">
+            <label for="task">Select Task:</label>
+            <select name="task" id="task" required>
+                <option value="symptoms">Analyze Symptoms</option>
+                <option value="summarize">Summarize Medical Report</option>
+                <option value="query">Answer Patient Query</option>
+            </select>
+
+            <label for="input_text">Input Text:</label>
+            <textarea id="input_text" name="input_text" rows="4" required></textarea>
+
+            <div id="context_section" style="display: none;">
+                <label for="context">Context (for Query Answering):</label>
+                <textarea id="context" name="context" rows="4"></textarea>
+            </div>
+
+            <button type="submit">Analyze</button>
+        </form>
+    </main>
+    <script>
+        document.getElementById('task').addEventListener('change', function () {
+            const contextSection = document.getElementById('context_section');
+            contextSection.style.display = this.value === 'query' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Journal</h1>
+    </header>
+    <main>
+        <form method="POST" action="/journal">
+            <label for="entry">Write your thoughts:</label><br>
+            <textarea id="entry" name="entry" rows="5" cols="40" required></textarea><br>
+            <button type="submit">Save Entry</button>
+        </form>
+        <section>
+            <h2>Journal Entries</h2>
+            <ul>
+                {% for entry in entries %}
+                    <li>
+                        <strong>Date:</strong> {{ entry.date }}<br>
+                        <strong>Entry:</strong> {{ entry.entry }}<br>
+                        <strong>Sentiment:</strong> {{ entry.analysis }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

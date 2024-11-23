@@ -1,0 +1,14 @@
+flask
+flask_sqlalchemy
+requests
+transformers
+pymongo
+dnspython
+python-dotenv
+Flask
+Flask-CORS
+pymongo
+python-dotenv
+transformers
+torch
+flask_socketio
